@@ -2,6 +2,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Films from './Films.js'
+
 
 const Card = styled.div`
 font-family: Georgia;
@@ -17,28 +19,6 @@ const H1= styled.h1`
 }
 `;
 
-const DivFilms= styled.div`
-display: flex;
-`;
-
-const UlFilms= styled.ul`
-
-boder: solid; 
-boder-color: black;
-`;
-
-const H2= styled.h2`
-margin-right: 2em; 
-:hover {
-  transform: scale(1.2);
-  color: red
-}
-`;
-
-const LI= styled.li`
-list-style-type: circle;
-`;
-
 
 
 const Character = ({characters}) => {
@@ -49,14 +29,7 @@ const Character = ({characters}) => {
         {characters.map((item,index) => (
           <Card key ={index}>
             <H1>{item.name}</H1>
-            <DivFilms>
-              <H2>Films</H2>
-              <ul>
-                {item.films.map((film,ix)=>{
-                  return <LI key={ix}>{film}</LI>
-                })}
-              </ul>
-            </DivFilms>
+            <Films films ={item.films}/>
           </Card>
         ))}
       </div>
